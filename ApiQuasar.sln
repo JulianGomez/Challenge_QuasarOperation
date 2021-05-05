@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiQuasar", "ApiQuasar\ApiQuasar.csproj", "{4B3665DA-A6CC-4963-B624-8790091CA64D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiQuasar.Test", "ApiQuasar.Test\ApiQuasar.Test.csproj", "{75ABC52E-FFAD-44D6-9266-1E5B4C7CE0DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B3665DA-A6CC-4963-B624-8790091CA64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3665DA-A6CC-4963-B624-8790091CA64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3665DA-A6CC-4963-B624-8790091CA64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3665DA-A6CC-4963-B624-8790091CA64D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75ABC52E-FFAD-44D6-9266-1E5B4C7CE0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75ABC52E-FFAD-44D6-9266-1E5B4C7CE0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75ABC52E-FFAD-44D6-9266-1E5B4C7CE0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75ABC52E-FFAD-44D6-9266-1E5B4C7CE0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {632A2300-F009-484E-AAEB-C04B8366B16F}
+	EndGlobalSection
+EndGlobal
