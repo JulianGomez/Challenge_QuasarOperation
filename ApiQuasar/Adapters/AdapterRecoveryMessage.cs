@@ -21,7 +21,6 @@ namespace ApiQuasar.Adapters
         }
 
 
-
         public static List<string[]> TupleToList(IEnumerable<Tuple<string, string, string>> tuple)
         {
 

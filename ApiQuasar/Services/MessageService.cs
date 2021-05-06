@@ -16,7 +16,6 @@ namespace ApiQuasar.Services
     public class MessageService : IMessageService
     {
         private readonly IAdapterRecoveryMessage _adapterRecoveryMessage;
-        private static Dictionary<string, SatelliteRequest> messagesSaved = new Dictionary<string, SatelliteRequest>();
 
         public MessageService(IAdapterRecoveryMessage adapterRecoveryMessage)
         {
@@ -38,21 +37,21 @@ namespace ApiQuasar.Services
 
         public void SaveMessage(SatelliteRequest satellite)
         {
-            if (messagesSaved.ContainsKey(satellite.Name.ToLower()))
+            if (Global.messagesSaved.ContainsKey(satellite.Name.ToLower()))
             {
                 //sobreescribo la información que contenía el satellite
-                messagesSaved[satellite.Name.ToLower()] = satellite;
+                Global.messagesSaved[satellite.Name.ToLower()] = satellite;
             }
             else
             {
                 //agrego un nuevo satellite
-                messagesSaved.Add(satellite.Name.ToLower(), satellite);
+                Global.messagesSaved.Add(satellite.Name.ToLower(), satellite);
             }
         }
 
         public List<SatelliteRequest> GetListMessagesSaved()
         {
-            return messagesSaved.Values.ToList();
+            return Global.messagesSaved.Values.ToList();
         }
 
     }

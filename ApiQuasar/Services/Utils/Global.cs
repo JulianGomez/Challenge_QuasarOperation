@@ -14,6 +14,8 @@ namespace ApiQuasar.Services.Utils
             new Satellite(){ Name = "kenobi", Position = new Position(-500,-200) },
             new Satellite(){ Name = "skywalker", Position =  new Position(100,-100) },
             new Satellite(){ Name = "sato", Position = new Position(500,100) }
-        };       
+        };
+
+        public static Dictionary<string, SatelliteRequest> messagesSaved = new Dictionary<string, SatelliteRequest>();
     }
 }

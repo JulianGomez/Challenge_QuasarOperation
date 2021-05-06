@@ -29,7 +29,7 @@ namespace ApiQuasar.Services
                 Position = this.GetPositionByName(s.Name)
             });
 
-            return _adapterPositionSatellite.GetPositionByTrilateration_V2(satellites);
+            return _adapterPositionSatellite.GetPositionByTrilateration_V1(satellites);
         }
 
 

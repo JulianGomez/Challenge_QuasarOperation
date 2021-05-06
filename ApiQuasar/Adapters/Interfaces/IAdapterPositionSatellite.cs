@@ -9,6 +9,5 @@ namespace ApiQuasar.Adapters.Interfaces
     public interface IAdapterPositionSatellite
     {
         Position GetPositionByTrilateration_V1(IEnumerable<TrilaterationModel> satellites);
-        Position GetPositionByTrilateration_V2(IEnumerable<TrilaterationModel> satellites);
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ApiQuasar.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class RecoveryMessageTest
     {
         [TestMethod]
         public void TestMethod1()
