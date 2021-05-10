@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ApiQuasar.Adapters
 {
-    public class AdapterPositionSatellite : IAdapterPositionSatellite
+    public class AdapterPositionShip : IAdapterPositionShip
     {
         public Position GetPositionByTrilateration_V1(IEnumerable<TrilaterationModel> satellites)
         {

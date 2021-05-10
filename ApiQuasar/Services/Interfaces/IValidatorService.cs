@@ -6,8 +6,8 @@ namespace ApiQuasar.Services
 {
     public interface IValidatorService
     {
-        void General(List<SatelliteRequest> Satellites);
+        void General(List<TransmissionModel> satellites);
 
-        bool SatelliteValid(SatelliteRequest satellite);
+        bool SatelliteValid(TransmissionModel satellite);
     }
 }

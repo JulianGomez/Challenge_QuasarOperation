@@ -11,25 +11,25 @@ namespace ApiQuasar.Services
 {
     public class ValidatorService : IValidatorService
     {
-        public void General(List<SatelliteRequest> satellites)
+        public void General(List<TransmissionModel> satellitesTransmission)
         {
-            this.cantSatellites(satellites);
-            this.validatorSatellites(satellites);
-            this.lengthArrayMessage(satellites);
+            this.countTransmissions(satellitesTransmission);
+            this.validatorSatellites(satellitesTransmission);
+            this.lengthArrayMessage(satellitesTransmission);
         }
 
 
-        private void cantSatellites(List<SatelliteRequest> listSatellites)
+        private void countTransmissions(List<TransmissionModel> satellitesTransmission)
         {
-            if (listSatellites.Count != 3)
+            if (satellitesTransmission.Count != 3)
             {
                 throw new HttpException("No se puede calcular el mensaje con la información proporcionada.", HttpStatusCode.NotFound);
             }
         }
 
-        private void validatorSatellites(List<SatelliteRequest> listSatellites)
+        private void validatorSatellites(List<TransmissionModel> satellitesTransmission)
         {
-            listSatellites.ForEach(x =>
+            satellitesTransmission.ForEach(x =>
             {
                 Satellite satellite = Global.satellites.Where(y => y.Name.ToLower().Equals(x.Name.ToLower())).FirstOrDefault();
 
@@ -41,11 +41,11 @@ namespace ApiQuasar.Services
             });
         }
 
-        private void lengthArrayMessage(List<SatelliteRequest> listSatellites)
+        private void lengthArrayMessage(List<TransmissionModel> satellitesTransmission)
         {
-            int lengthFirstSatellite = listSatellites[0].Message.Length;
+            int lengthFirstSatellite = satellitesTransmission[0].Message.Length;
 
-            bool differentLength = listSatellites.Any(x => x.Message.Length != lengthFirstSatellite);
+            bool differentLength = satellitesTransmission.Any(x => x.Message.Length != lengthFirstSatellite);
 
             if (differentLength)
             {
@@ -55,11 +55,11 @@ namespace ApiQuasar.Services
 
 
 
-        public bool SatelliteValid(SatelliteRequest satellite)
+        public bool SatelliteValid(TransmissionModel satelliteTransmission)
         {
             bool encontrado = false;
 
-            encontrado = Global.satellites.Any(x => x.Name.ToLower().Equals(satellite.Name.ToLower()));
+            encontrado = Global.satellites.Any(x => x.Name.ToLower().Equals(satelliteTransmission.Name.ToLower()));
 
             return encontrado;
 

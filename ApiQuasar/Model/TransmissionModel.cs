@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiQuasar.Model
 {
-    public class SatelliteRequest
+    public class TransmissionModel
     {
         [Required]
         public string Name { get; set; }

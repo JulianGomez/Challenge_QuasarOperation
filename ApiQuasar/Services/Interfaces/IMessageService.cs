@@ -10,8 +10,8 @@ namespace ApiQuasar.Services.Interfaces
     {
         string GetMessage(TopSecretRequest satellites);
 
-        void SaveMessage(SatelliteRequest satellite);
+        void SaveMessage(TransmissionModel satellite);
 
-        List<SatelliteRequest> GetListMessagesSaved();
+        List<TransmissionModel> GetListMessagesSaved();
     }
 }

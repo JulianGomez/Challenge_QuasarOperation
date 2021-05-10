@@ -16,6 +16,6 @@ namespace ApiQuasar.Services.Utils
             new Satellite(){ Name = "sato", Position = new Position(500,100) }
         };
 
-        public static Dictionary<string, SatelliteRequest> messagesSaved = new Dictionary<string, SatelliteRequest>();
+        public static Dictionary<string, TransmissionModel> messagesSaved = new Dictionary<string, TransmissionModel>();
     }
 }

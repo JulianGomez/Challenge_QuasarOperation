@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiQuasar.Adapters.Interfaces
 {
-    public interface IAdapterPositionSatellite
+    public interface IAdapterPositionShip
     {
         Position GetPositionByTrilateration_V1(IEnumerable<TrilaterationModel> satellites);
     }

@@ -12,11 +12,11 @@ namespace ApiQuasar.Services
 {
     public class LocationService : ILocationService
     {
-        private readonly IAdapterPositionSatellite _adapterPositionSatellite;
+        private readonly IAdapterPositionShip _adapterPositionShip;
 
-        public LocationService(IAdapterPositionSatellite adapterPositionSatellite)
+        public LocationService(IAdapterPositionShip adapterPositionShip)
         {
-            _adapterPositionSatellite = adapterPositionSatellite ?? throw new ArgumentNullException(nameof(adapterPositionSatellite));
+            _adapterPositionShip = adapterPositionShip ?? throw new ArgumentNullException(nameof(adapterPositionShip));
         }
 
         public Position GetLocation(TopSecretRequest request)
@@ -29,7 +29,7 @@ namespace ApiQuasar.Services
                 Position = this.GetPositionByName(s.Name)
             });
 
-            return _adapterPositionSatellite.GetPositionByTrilateration_V1(satellites);
+            return _adapterPositionShip.GetPositionByTrilateration_V1(satellites);
         }
 
 

@@ -4,10 +4,7 @@ using ApiQuasar.Services;
 using ApiQuasar.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace ApiQuasar.Controllers
 {
@@ -30,20 +27,20 @@ namespace ApiQuasar.Controllers
         [HttpPost]
         public ActionResult Post([FromHeader]string nameSatellite, [FromBody] TopSecret_SplitRequest request)
         {
-            SatelliteRequest satelliteRequest = new SatelliteRequest();
-            satelliteRequest.Name = nameSatellite;
-            satelliteRequest.Distance = request.Distance;
-            satelliteRequest.Message = request.Message;
+            TransmissionModel transmissionRequest = new TransmissionModel();
+            transmissionRequest.Name = nameSatellite;
+            transmissionRequest.Distance = request.Distance;
+            transmissionRequest.Message = request.Message;
 
-            if (_validatorService.SatelliteValid(satelliteRequest))
+            if (_validatorService.SatelliteValid(transmissionRequest))
             {
-                _messageService.SaveMessage(satelliteRequest);
+                _messageService.SaveMessage(transmissionRequest);
             }
             else {
-                throw new HttpException("No es posible guardar el satélite '" + nameSatellite + "'. No es un satelite válido.", HttpStatusCode.NotFound);
+                throw new HttpException("No es posible guardar la transmisión de '" + nameSatellite + "'. No es un satelite válido.", HttpStatusCode.NotFound);
             }
 
-            return Ok(satelliteRequest);
+            return Ok(transmissionRequest);
         }
 
 

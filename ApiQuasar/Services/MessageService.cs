@@ -25,17 +25,17 @@ namespace ApiQuasar.Services
 
         public string GetMessage(TopSecretRequest request)
         {
-            List<string[]> listMessages = new List<string[]>();
+            List<string[]> listTransmissionsMessages = new List<string[]>();
             request.Satellites.ForEach(x =>
             {
-                listMessages.Add(x.Message);
+                listTransmissionsMessages.Add(x.Message);
             });
 
-            return  _adapterRecoveryMessage.Recovery(listMessages);
+            return  _adapterRecoveryMessage.Recovery(listTransmissionsMessages);
 		}
 
 
-        public void SaveMessage(SatelliteRequest satellite)
+        public void SaveMessage(TransmissionModel satellite)
         {
             if (Global.messagesSaved.ContainsKey(satellite.Name.ToLower()))
             {
@@ -49,7 +49,7 @@ namespace ApiQuasar.Services
             }
         }
 
-        public List<SatelliteRequest> GetListMessagesSaved()
+        public List<TransmissionModel> GetListMessagesSaved()
         {
             return Global.messagesSaved.Values.ToList();
         }

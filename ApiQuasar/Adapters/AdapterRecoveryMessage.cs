@@ -9,9 +9,9 @@ namespace ApiQuasar.Adapters
 {
     public class AdapterRecoveryMessage : IAdapterRecoveryMessage
     {
-        public string Recovery(List<string[]> listSatellitesMessage)
+        public string Recovery(List<string[]> listTransmissionMessage)
         {
-            var zipMessage = listSatellitesMessage[0].Zip3(listSatellitesMessage[1], listSatellitesMessage[2], Tuple.Create);
+            var zipMessage = listTransmissionMessage[0].Zip3(listTransmissionMessage[1], listTransmissionMessage[2], Tuple.Create);
 
             List<string[]> listMessage = TupleToList(zipMessage);
             List<string> listMessageNoDuplicates = ListNoDuplicates(listMessage);
