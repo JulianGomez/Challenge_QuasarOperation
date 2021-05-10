@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace ApiQuasar
 {
@@ -28,8 +31,11 @@ namespace ApiQuasar
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
+                c.EnableAnnotations();
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiQuasar", Version = "v1" });
             });
+
+
             services.AddMvc(options =>
             {
                 options.Filters.Add(item: new HttpExceptionsFilter());

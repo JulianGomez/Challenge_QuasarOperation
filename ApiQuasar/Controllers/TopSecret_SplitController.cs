@@ -3,11 +3,13 @@ using ApiQuasar.Model;
 using ApiQuasar.Services;
 using ApiQuasar.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Net;
 
 namespace ApiQuasar.Controllers
 {
+    [SwaggerTag("(POST): Recibirá en su header el nombre del satelite como parámetro de ruta. En su body recibirá la distancia y el mensaje incompleto. Toda ésta información quedará guardada en memoria. \n\n  (GET) Obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint [Topsecret_SplitPOST]. Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar devolverá un error 404 Not Found.")]
     [ApiController]
     [Route("api/[controller]")]
     public class TopSecret_SplitController : ControllerBase

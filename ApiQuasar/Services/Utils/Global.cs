@@ -1,10 +1,6 @@
-﻿using ApiQuasar.Exceptions;
-using ApiQuasar.Model;
-using System;
+﻿using ApiQuasar.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+
 
 namespace ApiQuasar.Services.Utils
 {
@@ -16,6 +12,7 @@ namespace ApiQuasar.Services.Utils
             new Satellite(){ Name = "sato", Position = new Position(500,100) }
         };
 
-        public static Dictionary<string, TransmissionModel> messagesSaved = new Dictionary<string, TransmissionModel>();
+        public static Dictionary<string, TransmissionModel> messagesSaved = new Dictionary<string, TransmissionModel>();      
+
     }
 }

@@ -1,15 +1,10 @@
 ﻿using ApiQuasar.Adapters;
-using ApiQuasar.Exceptions;
 using ApiQuasar.Model;
 using ApiQuasar.Services.Interfaces;
 using ApiQuasar.Services.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ApiQuasar.Services
 {

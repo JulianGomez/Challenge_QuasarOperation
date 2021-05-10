@@ -3,11 +3,13 @@ using ApiQuasar.Model;
 using ApiQuasar.Services;
 using ApiQuasar.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Net;
 
 namespace ApiQuasar.Controllers
 {
+    [SwaggerTag("Obtiene la posicion y el mensaje completo de la información obtenida por los satelites. Sí el mensaje o posición no se puede recuperar devolverá un error 404 Not Found.")]
     [ApiController]
     [Route("api/[controller]")]
     public class TopSecretController : ControllerBase

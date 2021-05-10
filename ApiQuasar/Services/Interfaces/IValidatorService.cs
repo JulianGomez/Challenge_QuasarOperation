@@ -1,5 +1,4 @@
-﻿
-using ApiQuasar.Model;
+﻿using ApiQuasar.Model;
 using System.Collections.Generic;
 
 namespace ApiQuasar.Services
