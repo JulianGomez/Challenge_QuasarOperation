@@ -47,7 +47,7 @@ Tambien se podría optar por aplicaciones como POSTMAN accediendo directamente a
 ### **Topsecret (POST):** 
 
 _Obtiene la posicion y el mensaje completo de la información obtenida por los satelites.
-Sí el mensaje o posición no se puede recuperar deberá devolver un error 404 Not Found._
+Sí el mensaje o posición no se puede recuperar devolverá un error 404 Not Found._
 
 Ejemplo de request body:
 
@@ -140,7 +140,7 @@ En caso que el nombre del satellite ingresado no corresponda a uno válido, reto
 ### **Topsecret_Split (GET):** 
 
 _Obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint ** Topsecret_Split (POST): **.
-Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar deberá devolver un error 404 Not Found._
+Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar devolverá un error 404 Not Found._
 
 ```
 {
