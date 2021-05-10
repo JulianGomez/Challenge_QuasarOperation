@@ -4,12 +4,19 @@ _El servicio de inteligencia rebelde ha detectado un llamado de auxilio de una n
 un campo de asteroides. El manifiesto de la nave es ultra clasificado, pero se rumorea que transporta raciones y
 armamento para una legión entera._
 
-Se crea una api restful capaz de poder retornar la fuente y contenido del mensaje de auxilio, a partir de 3 satelites
-para triangular la posicion y logica para poder descifrar el mensaje de auxilio a partir de mensajes incompletos debido
-a un campo de asteroides frente a la nave.
+## General
+
+Creación de una WebApi que permite retornar la fuente y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satelites
+para triangular la posicion y poder descifrar el mensaje completo a partir de transmisiones incompletas debido
+al campo de asteroides que se encuentra frente a la nave.
+
+## Datos del Proyecto
+
+* El desarrollo fue realizado en código C#, utilizando Framework 5.0 ASP.NET Core.
+* WebApi documentada con swagger, donde al contar con interfaz de usuario, se podrán ejecutar las peticiones HTTP en los endpoints defindos.
 
 
-### Instalación local y ejecución
+## Instalación local y ejecución
 
 Ésta instrucción permitirá obtener una copia del proyecto para utilizarlo de forma local y poder realizar desarrollo / pruebas:
 ```
@@ -22,13 +29,7 @@ http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
 ```
 
 
-### Datos del Proyecto
-
-*El desarrollo fue realizado en código C#, utilizando Framework 5.0 ASP.NET Core.
-*WebApi documentada con swagger, donde al contar con interfaz de usuario, se podrán ejecutar las peticiones HTTP en los endpoints defindos.
-
-
-### Utilización
+## Utilización
 
 Usando Swagger: 
 
@@ -73,13 +74,13 @@ Ejemplo de request body:
 Ejemplo de respuesta exitosa retornando code 200:
 
 ```
-	{
-	  "position": {
-		"x": -487.2859125000017,
-		"y": 1557.0142250000058
-	  },
-	  "message": "este es un mensaje secreto"
-	}
+{
+  "position": {
+	"x": -487.2859125000017,
+	"y": 1557.0142250000058
+  },
+  "message": "este es un mensaje secreto"
+}
 ```
 
 En caso que no se pueda determinar la posición o el mensaje, retorna code 404:
@@ -98,37 +99,37 @@ Toda ésta información quedará guardada en memoria.
 Ejemplo de request:
 
 ```
-	header:  "kenobi"
-	
-	body:
-	{
-	  "distance": 100.0,
-	  "message": ["este", "", "", "mensaje", ""]
-	} 
+header:  "kenobi"
+
+body:
+{
+  "distance": 100.0,
+  "message": ["este", "", "", "mensaje", ""]
+} 
 ```
 
 Ejemplo de respuesta exitosa retornando code 200:
 
 ```
-	{
-	  "name": "kenobi",
-	  "distance": 100,
-	  "message": [
-		"este",
-		"",
-		"",
-		"mensaje",
-		""
-	  ]
-	}
+{
+  "name": "kenobi",
+  "distance": 100,
+  "message": [
+	"este",
+	"",
+	"",
+	"mensaje",
+	""
+  ]
+}
 ```
 
 En caso que el nombre del satellite ingresado no corresponda a uno válido, retorna code 404:
 
 ```
-	{
-	  "error": "No es posible guardar el satélite 'julian'. No es un satelite válido."
-	}
+{
+  "error": "No es posible guardar el satélite 'julian'. No es un satelite válido."
+}
 ```
 
 
@@ -136,9 +137,9 @@ En caso que el nombre del satellite ingresado no corresponda a uno válido, reto
 Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar deberá devolver un error 404 Not Found.
 
 ```
-	{
-	  "error": "No se puede calcular el mensaje con la información proporcionada."
-	}
+{
+  "error": "No se puede calcular el mensaje con la información proporcionada."
+}
 ```
 
 
