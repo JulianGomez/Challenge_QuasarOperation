@@ -6,8 +6,8 @@ armamento para una legión entera._
 
 ## General
 
-Creación de una WebApi que permite retornar la fuente y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satelites
-para triangular la posicion y poder descifrar el mensaje completo a partir de transmisiones incompletas debido
+Creación de una WebApi que permite retornar la posición y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satélites
+para triangular la posición y poder descifrar el mensaje completo a partir de transmisiones incompletas debido
 al campo de asteroides que se encuentra frente a la nave.
 
 ## Datos del Proyecto
@@ -88,9 +88,9 @@ Ejemplo de respuesta exitosa retornando code 200:
 En caso que no se pueda determinar la posición o el mensaje, retorna code 404:
 
 ```
-	{
-	  "error": "No se puede calcular el mensaje con la información proporcionada."
-	}
+{
+  "error": "No se puede calcular el mensaje con la información proporcionada."
+}
 ```
 
 
