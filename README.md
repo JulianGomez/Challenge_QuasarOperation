@@ -37,14 +37,14 @@ _http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html_
   
 Tambien se podría optar por aplicaciones como POSTMAN accediendo directamente a cada endpoint: 
 
-_http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret
-http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret_Split_
+* _http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret
+* http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret_Split_
 
   
  
-### Endpoints 
+## Endpoints 
 
-*Topsecret (POST):* obtiene la posicion y el mensaje completo de la información obtenida por los satelites.
+* **Topsecret (POST):** obtiene la posicion y el mensaje completo de la información obtenida por los satelites.
 Sí el mensaje o posición no se puede recuperar deberá devolver un error 404 Not Found.
 
 Ejemplo de request body:
@@ -93,7 +93,7 @@ En caso que no se pueda determinar la posición o el mensaje, retorna code 404:
 
 
 
-*Topsecret_Split (POST):* recibirá en su header el nombre del satelite como parámetro de ruta. En su body recibirá la distancia y el mensaje incompleto.
+* **Topsecret_Split (POST):** recibirá en su header el nombre del satelite como parámetro de ruta. En su body recibirá la distancia y el mensaje incompleto.
 Toda ésta información quedará guardada en memoria.
 
 Ejemplo de request:
@@ -133,7 +133,8 @@ En caso que el nombre del satellite ingresado no corresponda a uno válido, reto
 ```
 
 
-*Topsecret_Split (GET):* obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint *Topsecret_Split (POST):*.
+
+* **Topsecret_Split (GET):** obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint *Topsecret_Split (POST):*.
 Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar deberá devolver un error 404 Not Found.
 
 ```
