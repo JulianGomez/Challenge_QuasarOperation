@@ -9,13 +9,13 @@ armamento para una legión entera._
 Creación de una WebApi que permite retornar la posición y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satélites
 para triangular la posición (método basado en [Trilateración 2D](https://www.pathpartnertech.com/triangulation-vs-trilateration-vs-multilateration-for-indoor-positioning-systems/)) y descifrado del mensaje completo a partir de transmisiones incompletas que llegan de los satélites.
 
-## Datos del Proyecto
+## Arquitectura
 
 * El desarrollo fue realizado en código C#, utilizando el Framework 5.0 ASP.NET Core.
 * WebApi documentada con swagger, donde al contar con interfaz de usuario, se podrán ejecutar las peticiones HTTP en los endpoints defindos.
 
 
-## Instalación local y ejecución
+## Instalación y Pruebas (local/producción)
 
 Instrucción que permitirá obtener una copia del proyecto para utilizarlo de forma local y realizar pruebas:
 ```
@@ -25,7 +25,6 @@ La WebApi se encuentra hosteada en AWS para su ejecución:
 ```
 http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
 ```
-
 
 ## Utilización
 
@@ -37,7 +36,6 @@ Tambien se podría optar por la utilizacion de aplicaciones como POSTMAN o INSOM
 
 * http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret
 * http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret_Split
-
 
  
 ## Endpoints 
