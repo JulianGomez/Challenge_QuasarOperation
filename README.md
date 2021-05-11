@@ -7,49 +7,45 @@ armamento para una legión entera._
 ## General
 
 Creación de una WebApi que permite retornar la posición y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satélites
-para triangular la posición y poder descifrar el mensaje completo a partir de transmisiones incompletas debido
-al campo de asteroides que se encuentra frente a la nave.
+para triangular la posición (método basado en [Trilateración 2D](https://www.pathpartnertech.com/triangulation-vs-trilateration-vs-multilateration-for-indoor-positioning-systems/)) y descifrado del mensaje completo a partir de transmisiones incompletas que llegan de los satélites.
 
-## Datos del Proyecto
+## Arquitectura
 
-* El desarrollo fue realizado en código C#, utilizando Framework 5.0 ASP.NET Core.
+* El desarrollo fue realizado en código C#, utilizando el Framework 5.0 ASP.NET Core.
 * WebApi documentada con swagger, donde al contar con interfaz de usuario, se podrán ejecutar las peticiones HTTP en los endpoints defindos.
 
 
-## Instalación local y ejecución
+## Instalación y Pruebas (local/producción)
 
-Ésta instrucción permitirá obtener una copia del proyecto para utilizarlo de forma local y poder realizar desarrollo / pruebas:
+Instrucción que permitirá obtener una copia del proyecto para utilizarlo de forma local y realizar pruebas:
 ```
 git clone https://github.com/JulianGomez/Challenge_QuasarOperation
 ```
-
 La WebApi se encuentra hosteada en AWS para su ejecución:
 ```
 http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
 ```
 
-
 ## Utilización
 
 Usando Swagger: 
 
-_http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html_
+* http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
   
-Tambien se podría optar por aplicaciones como POSTMAN accediendo directamente a cada endpoint: 
+Tambien se podría optar por la utilizacion de aplicaciones como POSTMAN o INSOMNIA accediendo a cada endpoint: 
 
 * http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret
 * http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/api/TopSecret_Split
-
 
  
 ## Endpoints 
 
 ### **Topsecret (POST):** 
 
-_Obtiene la posicion y el mensaje completo de la información obtenida por los satelites.
+_Obtiene la posicion y el mensaje completo de la información obtenida de cada satélite.
 Sí el mensaje o posición no se puede recuperar devolverá un error 404 Not Found._
 
-Ejemplo de request body:
+Ejemplo - Request Body:
 
 ```
 {
@@ -73,7 +69,7 @@ Ejemplo de request body:
 }
 ```
 
-Ejemplo de respuesta exitosa retornando code 200:
+Ejemplo - respuesta exitosa con código 200:
 
 ```
 {
@@ -85,7 +81,7 @@ Ejemplo de respuesta exitosa retornando code 200:
 }
 ```
 
-En caso que no se pueda determinar la posición o el mensaje, retorna code 404:
+En caso que no se pueda determinar la posición o el mensaje, retorna código 404:
 
 ```
 {
@@ -97,10 +93,10 @@ En caso que no se pueda determinar la posición o el mensaje, retorna code 404:
 
 ### **Topsecret_Split (POST):** 
 
-_Recibirá en su header el nombre del satelite como parámetro de ruta. En su body recibirá la distancia y el mensaje incompleto.
-Toda ésta información quedará guardada en memoria._
+_Recibirá en su header como parámetro el nombre del satelite. En su body recibirá la distancia y el mensaje incompleto.
+En caso de ser un sátelite válido, la información quedará guardada en memoria._
 
-Ejemplo de request:
+Ejemplo - Request:
 
 ```
 header:  "kenobi"
@@ -112,7 +108,7 @@ body:
 } 
 ```
 
-Ejemplo de respuesta exitosa retornando code 200:
+Ejemplo - respuesta exitosa con código 200:
 
 ```
 {
@@ -128,7 +124,7 @@ Ejemplo de respuesta exitosa retornando code 200:
 }
 ```
 
-En caso que el nombre del satellite ingresado no corresponda a uno válido, retorna code 404:
+En caso que el nombre del satellite ingresado no corresponda a uno válido, retorna código 404:
 
 ```
 {
@@ -139,7 +135,7 @@ En caso que el nombre del satellite ingresado no corresponda a uno válido, reto
 
 ### **Topsecret_Split (GET):** 
 
-_Obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint ** Topsecret_Split (POST): **.
+_Obtiene la posicion y el mensaje completo de la información guardada en memoria por el endpoint *[Topsecret_Split -> POST]*.
 Sí la cantidad de satelites no es la correcta o el mensaje/posición no se puede recuperar devolverá un error 404 Not Found._
 
 ```
