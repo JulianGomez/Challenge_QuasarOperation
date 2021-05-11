@@ -7,7 +7,7 @@ armamento para una legión entera._
 ## General
 
 Creación de una WebApi que permite retornar la posición y contenido del mensaje de auxilio, en los cuales se cuenta con 3 satélites
-para triangular la posición (método basado en [Trilateración 2D](https://www.pathpartnertech.com/triangulation-vs-trilateration-vs-multilateration-for-indoor-positioning-systems/)) y descifrar el mensaje completo a partir de transmisiones incompletas que llegan de los satélites.
+para triangular la posición (método basado en [Trilateración 2D](https://www.pathpartnertech.com/triangulation-vs-trilateration-vs-multilateration-for-indoor-positioning-systems/)) y descifrado del mensaje completo a partir de transmisiones incompletas que llegan de los satélites.
 
 ## Datos del Proyecto
 
