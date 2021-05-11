@@ -1,5 +1,5 @@
-using ApiQuasar.Adapters;
-using ApiQuasar.Adapters.Interfaces;
+using ApiQuasar.Data;
+using ApiQuasar.Data.Interfaces;
 using ApiQuasar.Filters;
 using ApiQuasar.Services;
 using ApiQuasar.Services.Interfaces;
@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
-using System.IO;
-using System.Reflection;
 
 namespace ApiQuasar
 {
@@ -44,9 +41,7 @@ namespace ApiQuasar
             services.AddSingleton<ILocationService, LocationService>();
             services.AddSingleton<IMessageService, MessageService>();
             services.AddSingleton<IValidatorService, ValidatorService>();
-            services.AddSingleton<IAdapterRecoveryMessage, AdapterRecoveryMessage>();
-            services.AddSingleton<IAdapterPositionShip, AdapterPositionShip>();
-
+            services.AddSingleton<IDataRepository, DataRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

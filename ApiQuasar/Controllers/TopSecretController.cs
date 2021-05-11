@@ -29,10 +29,10 @@ namespace ApiQuasar.Controllers
         [HttpPost]
         public ActionResult Post(TopSecretRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                throw new HttpException("No se puede calcular la posición o el mensaje con la información proporcionada.", HttpStatusCode.NotFound);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    throw new HttpException("No se puede calcular la posición o el mensaje con la información proporcionada.", HttpStatusCode.NotFound);
+            //}
 
             _validatorService.General(request.Satellites);
 

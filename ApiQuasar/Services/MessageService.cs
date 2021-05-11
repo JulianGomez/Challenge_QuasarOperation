@@ -1,4 +1,4 @@
-﻿using ApiQuasar.Adapters;
+﻿using ApiQuasar.Data.Interfaces;
 using ApiQuasar.Model;
 using ApiQuasar.Services.Interfaces;
 using ApiQuasar.Services.Utils;
@@ -10,13 +10,12 @@ namespace ApiQuasar.Services
 {
     public class MessageService : IMessageService
     {
-        private readonly IAdapterRecoveryMessage _adapterRecoveryMessage;
+        private readonly IDataRepository _dataRepository;
 
-        public MessageService(IAdapterRecoveryMessage adapterRecoveryMessage)
+        public MessageService(IDataRepository dataRepository)
         {
-            _adapterRecoveryMessage = adapterRecoveryMessage ?? throw new ArgumentNullException(nameof(adapterRecoveryMessage));
+            _dataRepository = dataRepository ?? throw new ArgumentNullException(nameof(dataRepository));
         }
-
 
         public string GetMessage(TopSecretRequest request)
         {
@@ -26,28 +25,27 @@ namespace ApiQuasar.Services
                 listTransmissionsMessages.Add(x.Message);
             });
 
-            return  _adapterRecoveryMessage.Recovery(listTransmissionsMessages);
+            return RecoveryMessage.Recovery(listTransmissionsMessages);
 		}
 
 
-        public void SaveMessage(TransmissionModel satellite)
+        public void SaveMessage(TransmissionModel transmission)
         {
-            if (Global.messagesSaved.ContainsKey(satellite.Name.ToLower()))
+            if (_dataRepository.SatelliteAlreadySave(transmission))
             {
-                //sobreescribo la información que contenía el satellite
-                Global.messagesSaved[satellite.Name.ToLower()] = satellite;
+                //sobreescribo la información que contenía la transmision
+                _dataRepository.UpdateDataTransmission(transmission);
             }
             else
             {
-                //agrego un nuevo satellite
-                Global.messagesSaved.Add(satellite.Name.ToLower(), satellite);
+                //agrego una nueva transmision en memoria
+                _dataRepository.AddDataTransmission(transmission); 
             }
         }
 
         public List<TransmissionModel> GetListMessagesSaved()
         {
-            return Global.messagesSaved.Values.ToList();
+            return _dataRepository.GetMessagesSaved().Values.ToList();
         }
-
     }
 }

@@ -29,10 +29,11 @@ namespace ApiQuasar.Controllers
         [HttpPost]
         public ActionResult Post([FromHeader]string nameSatellite, [FromBody] TopSecret_SplitRequest request)
         {
-            TransmissionModel transmissionRequest = new TransmissionModel();
-            transmissionRequest.Name = nameSatellite;
-            transmissionRequest.Distance = request.Distance;
-            transmissionRequest.Message = request.Message;
+            TransmissionModel transmissionRequest = new TransmissionModel() {
+                Name = nameSatellite,
+                Distance = request.Distance,
+                Message = request.Message
+            };
 
             if (_validatorService.SatelliteValid(transmissionRequest))
             {

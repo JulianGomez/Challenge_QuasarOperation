@@ -1,6 +1,8 @@
-﻿using ApiQuasar.Exceptions;
+﻿using ApiQuasar.Data.Interfaces;
+using ApiQuasar.Exceptions;
 using ApiQuasar.Model;
 using ApiQuasar.Services.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +11,14 @@ namespace ApiQuasar.Services
 {
     public class ValidatorService : IValidatorService
     {
+        private readonly IDataRepository _dataRepository;
+
+        public ValidatorService(IDataRepository dataRepository)
+        {
+            _dataRepository = dataRepository ?? throw new ArgumentNullException(nameof(dataRepository));
+        }
+
+
         public void General(List<TransmissionModel> satellitesTransmission)
         {
             this.countTransmissions(satellitesTransmission);
@@ -29,7 +39,7 @@ namespace ApiQuasar.Services
         {
             satellitesTransmission.ForEach(x =>
             {
-                Satellite satellite = Global.satellites.Where(y => y.Name.ToLower().Equals(x.Name.ToLower())).FirstOrDefault();
+                Satellite satellite = _dataRepository.GetSatellites().Where(y => y.Name.ToLower().Equals(x.Name.ToLower())).FirstOrDefault();
 
                 if (satellite == null)
                 {
@@ -57,7 +67,7 @@ namespace ApiQuasar.Services
         {
             bool encontrado = false;
 
-            encontrado = Global.satellites.Any(x => x.Name.ToLower().Equals(satelliteTransmission.Name.ToLower()));
+            encontrado = _dataRepository.GetSatellites().Any(x => x.Name.ToLower().Equals(satelliteTransmission.Name.ToLower()));
 
             return encontrado;
 

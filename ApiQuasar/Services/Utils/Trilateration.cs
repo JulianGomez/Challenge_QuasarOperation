@@ -1,14 +1,14 @@
-﻿using ApiQuasar.Adapters.Interfaces;
-using ApiQuasar.Model;
+﻿using ApiQuasar.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace ApiQuasar.Adapters
+namespace ApiQuasar.Services.Utils
 {
-    public class AdapterPositionShip : IAdapterPositionShip
+    public static class Trilateration
     {
-        public Position GetPositionByTrilateration_V1(IEnumerable<TrilaterationModel> satellites)
+        public static Position GetPosition(IEnumerable<TrilaterationModel> satellites)
         {
             List<TrilaterationModel> listS = satellites.ToList();
 
@@ -25,8 +25,8 @@ namespace ApiQuasar.Adapters
             //componente X
             double i = ex.X * aux.X + ex.Y * aux.Y;
             //the unit vector in the y direction. 
-            Position aux2 = new Position (point3.X - point1.X - i * ex.X, point3.Y - point1.Y - i * ex.Y );
-            Position ey = new Position (aux2.X / norm(aux2), aux2.Y / norm(aux2));
+            Position aux2 = new Position(point3.X - point1.X - i * ex.X, point3.Y - point1.Y - i * ex.Y);
+            Position ey = new Position(aux2.X / norm(aux2), aux2.Y / norm(aux2));
             //componente Y
             double j = ey.X * aux.X + ey.Y * aux.Y;
             //coordenadas
@@ -40,7 +40,7 @@ namespace ApiQuasar.Adapters
         }
 
 
-        private double norm(Position p) 
+        private static double norm(Position p)
         {
             return Math.Pow(Math.Pow(p.X, 2) + Math.Pow(p.Y, 2), .5);
         }
