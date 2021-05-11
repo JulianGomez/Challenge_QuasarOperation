@@ -31,7 +31,7 @@ http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
 
 Usando Swagger: 
 
-_http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html_
+* http://ec2-34-220-99-102.us-west-2.compute.amazonaws.com/swagger/index.html
   
 Tambien se podría optar por la utilizacion de aplicaciones como POSTMAN o INSOMNIA accediendo a cada endpoint: 
 
