@@ -7,6 +7,6 @@ namespace ApiQuasar
 {
     public static class Constants
     {
-        public static int NUMBER_SATELLITES { get; set; } = 3;
+        public const int NUMBER_SATELLITES = 3;
     }
 }
