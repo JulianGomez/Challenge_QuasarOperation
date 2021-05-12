@@ -19,16 +19,14 @@ namespace ApiQuasar.Data
             new Satellite(){ Name = "sato", Position = new Position(500, 100) }
         };
 
-
         public List<Satellite> GetSatellites()
         {
             return satellites;
         }
 
-
         public Position GetPositionByName(string name_satellite)
         {
-            Satellite satellite = satellites.Where(x => x.Name.ToUpper().Equals(name_satellite.ToUpper())).FirstOrDefault();
+            Satellite satellite = satellites.Where(x => x.Name.ToLower().Equals(name_satellite.ToLower())).FirstOrDefault();
 
             if (satellite != null)
             {

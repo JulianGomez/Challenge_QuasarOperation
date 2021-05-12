@@ -21,15 +21,15 @@ namespace ApiQuasar.Services
 
         public void General(List<TransmissionModel> satellitesTransmission)
         {
-            this.countTransmissions(satellitesTransmission);
-            this.validatorSatellites(satellitesTransmission);
-            this.lengthArrayMessage(satellitesTransmission);
+            countTransmissions(satellitesTransmission);
+            validatorSatellites(satellitesTransmission);
+            lengthArrayMessage(satellitesTransmission);
         }
 
 
         private void countTransmissions(List<TransmissionModel> satellitesTransmission)
         {
-            if (satellitesTransmission.Count != 3)
+            if (satellitesTransmission.Count != Constants.NUMBER_SATELLITES)
             {
                 throw new HttpException("No se puede calcular el mensaje con la información proporcionada.", HttpStatusCode.NotFound);
             }
@@ -60,7 +60,6 @@ namespace ApiQuasar.Services
                 throw new HttpException("No es posible recuperar el mensaje, la longitud del mensaje en la transmisión es diferente.", HttpStatusCode.NotFound);
             }
         }
-
 
 
         public bool SatelliteValid(TransmissionModel satelliteTransmission)

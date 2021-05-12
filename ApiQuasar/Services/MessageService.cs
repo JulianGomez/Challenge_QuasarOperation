@@ -29,6 +29,11 @@ namespace ApiQuasar.Services
 		}
 
 
+        public List<TransmissionModel> GetListMessagesSaved()
+        {
+            return _dataRepository.GetMessagesSaved().Values.ToList();
+        }
+
         public void SaveMessage(TransmissionModel transmission)
         {
             if (_dataRepository.SatelliteAlreadySave(transmission))
@@ -41,11 +46,6 @@ namespace ApiQuasar.Services
                 //agrego una nueva transmision en memoria
                 _dataRepository.AddDataTransmission(transmission); 
             }
-        }
-
-        public List<TransmissionModel> GetListMessagesSaved()
-        {
-            return _dataRepository.GetMessagesSaved().Values.ToList();
         }
     }
 }
